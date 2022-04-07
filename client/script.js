@@ -80,7 +80,11 @@ sayHelloButton.addEventListener('click', sayHello);
 const ohMy = () => {
     return axios.get('http://localhost:3000/animals')
 .then(res => {
-    return res.data
+    for(let i = 0; i < res.data.length; i++){
+        let p = document.createElement(`p`)
+        p.textContent = res.data[i]
+        document.querySelector(`body`).appendChild(p)
+    }
 })
 }
 
